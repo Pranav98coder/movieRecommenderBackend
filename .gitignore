@@ -5,7 +5,6 @@ env/
 
 
 
-
 # Python cache and temporary files
 __pycache__/
 *.pyc

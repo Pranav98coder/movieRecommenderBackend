@@ -2,14 +2,25 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
 import pickle
+import numpy as np
 import os
 app = Flask(__name__)
 CORS(app)  
 
+movie_dict_path = os.path.join(BASE_DIR, 'movie_dict.pkl')
 
-movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
+similarity_nz_path = os.path.join(BASE_DIR, 'similarity.npz')
+
+
+movies_dict = pickle.load(open(movie_dict_path, 'rb'))
 movies = pd.DataFrame(movies_dict)
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+
+
+with np.load(similarity_nz_path) as data:
+    similarity = data['matrix']
+
+
+
 
 @app.route('/api/movies', methods=['GET'])
 def get_movie_list():

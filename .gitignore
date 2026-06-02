@@ -1,0 +1,19 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Datasets and Model files (Updated for your project)
+*.pkl
+movie_dict.pkl
+similarity.pkl
+tmdb_5000_credits.csv
+tmdb_5000_movies.csv
+
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
